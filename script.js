@@ -18,5 +18,13 @@ function playRound(playerSelection, computerSelection) {
         (playerChoice === 'lizard' && computerChoice === 'paper') ||
         (playerChoice === 'paper' && computerChoice === 'spock') ||
         (playerChoice === 'lizard' && computerChoice === 'spock') ||
-    )
+        (playerChoice === 'scissors' && computerChoice === 'lizard') ||
+        (playerChoice === 'rock' && computerChoice === 'lizard') ||
+        (playerChoice === 'spock' && computerChoice === 'scissors') ||
+        (playerChoice === 'spock' && computerChoice === 'rock')
+    ) {
+        return 'You win';
+    } else {
+        return 'You lose'
+    }
 }

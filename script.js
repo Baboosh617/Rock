@@ -18,7 +18,6 @@ function playRound(playerSelection, computerSelection) {
         (playerChoice === 'lizard' && computerChoice === 'paper') ||
         (playerChoice === 'paper' && computerChoice === 'spock') ||
         (playerChoice === 'lizard' && computerChoice === 'spock') ||
-<<<<<<< HEAD
         (playerChoice === 'scissors' && computerChoice === 'lizard') ||
         (playerChoice === 'rock' && computerChoice === 'lizard') ||
         (playerChoice === 'spock' && computerChoice === 'scissors') ||
@@ -28,7 +27,38 @@ function playRound(playerSelection, computerSelection) {
     } else {
         return 'You lose'
     }
-=======
-    )
->>>>>>> 1075e4b431d0c46daebc9ff64eb6e5280f5a2643
 }
+
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+
+    for ( let i = 0; 1 < 5; i++){
+        const playerSelection = prompt('Choose: rock, paper, scissors, lizard or spock');
+        const computerSelection = computerPlay();
+        const result = playRound(playerSelection, computerSelection);
+
+        console.log(`Player: ${playerSelection}`)
+        comsole.log(`Computer: ${computerSelection}`);
+        console.log(result);
+
+        if(result === 'You win'){
+            playerScore++;
+        }else if (result === 'You lose'){
+            computerScore++
+        }
+    }
+
+    console.log(`Player Score: ${playerScore}`);
+    console.log(`Computer Score: ${computerScore}`);
+
+    if (playerScore > computerScore) {
+        console.log('You beat the computer, clap for youself');
+    }else if (playerScore < computerScore) {
+        console.log("Seriously? You could'nt beat it?");
+    }else {
+        console.log("it's a tie bozo...")
+    }
+}
+
+game()

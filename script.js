@@ -33,13 +33,20 @@ function game() {
     let playerScore = 0;
     let computerScore = 0;
 
-    for ( let i = 0; 1 < 5; i++){
+    for ( let round = 0; round < 5; round++){
         const playerSelection = prompt('Choose: rock, paper, scissors, lizard or spock');
-        const computerSelection = computerPlay();
+        const computerSelection = getComputerChoice();
         const result = playRound(playerSelection, computerSelection);
 
+        if (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissors' && playerSelection !== 'lizard' && playerSelection !== 'spock') {
+            console.log('Invalid move, try again.');
+            round--;
+            continue;
+            //Found this online for replaying the round if move is invalid
+         };
+
         console.log(`Player: ${playerSelection}`)
-        comsole.log(`Computer: ${computerSelection}`);
+        console.log(`Computer: ${computerSelection}`);
         console.log(result);
 
         if(result === 'You win'){
@@ -53,7 +60,7 @@ function game() {
     console.log(`Computer Score: ${computerScore}`);
 
     if (playerScore > computerScore) {
-        console.log('You beat the computer, clap for youself');
+        console.log('You beat the computer, clap for yourself');
     }else if (playerScore < computerScore) {
         console.log("Seriously? You could'nt beat it?");
     }else {
@@ -61,4 +68,4 @@ function game() {
     }
 }
 
-game()
+game();

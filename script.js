@@ -4,6 +4,10 @@ function getComputerChoice() {
     return choices[randomIndex];
 }
 
+const playerScoreSpan = document.querySelector('#player-score');
+const computerScoreSpan = document.querySelector('#computer-score');
+const resultText = document.querySelector('#result-text');
+
 function playRound(playerSelection, computerSelection) {
     const playerChoice = playerSelection.toLowerCase();
     const computerChoice = computerSelection.toLowerCase();
@@ -33,32 +37,34 @@ function game() {
     let playerScore = 0;
     let computerScore = 0;
 
-    // for ( let round = 0; round < 5; round++){
-    //     const playerSelection = prompt('Choose: rock, paper, scissors, lizard or spock');
-    //     const computerSelection = getComputerChoice();
-    //     const result = playRound(playerSelection, computerSelection);
+    for ( let round = 0; round < 5; round++){
+        const playerSelection = prompt('Choose: rock, paper, scissors, lizard or spock');
+        const computerSelection = getComputerChoice();
+        const result = playRound(playerSelection, computerSelection);
 
-    //     if (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissors' && playerSelection !== 'lizard' && playerSelection !== 'spock') {
-    //         console.log('Invalid move, try again.');
-    //         round--;
-    //         continue;
-    //         //Found this online for replaying the round if move is invalid
-    //      };
+        if (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissors' && playerSelection !== 'lizard' && playerSelection !== 'spock') {
+            console.log('Invalid move, try again.');
+            round--;
+            continue;
+            //Found this online for replaying the round if move is invalid
+         };
 
-    //     console.log(`Player: ${playerSelection}`)
-    //     console.log(`Computer: ${computerSelection}`);
-    //     console.log(result);
+        // console.log(`Player: ${playerSelection}`)
+        // console.log(`Computer: ${computerSelection}`);
+        // console.log(result);
 
-    //     if(result === 'You win'){
-    //         playerScore++;
-    //     }else if (result === 'You lose'){
-    //         computerScore++
-    //     }
-    // }
+        if(result === 'You win'){
+            playerScore++;
+        }else if (result === 'You lose'){
+            computerScore++
+        }
+    }
 
     const btn1 = document.querySelector('#btn1');
     const btn2 = document.querySelector('#btn2');
     const btn3 = document.querySelector('#btn3');
+    const btn4 = document.querySelector('#btn4');
+    const btn5 = document.querySelector('#btn');
 
     btn1.onclick = () => playRound();
 
